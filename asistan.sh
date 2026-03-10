@@ -65,7 +65,8 @@ fi
 echo "----------------------------------------"
 echo "📝 Transkript Çıkarılıyor..."
 $WHISPER_CMD -m "$WHISPER_MODEL" -f "$WAV_YOLU" -l tr -otxt > /dev/null 2>&1
-
+# Whisper işlemi bittikten sonra sanal ortamdaki python ile özetleyiciyi çalıştır
+"$HOME/offline_asistan/env/bin/python" "$HOME/offline_asistan/ozetleyici.py" "$TXT_YOLU"
 # 5. ÖZETLEME (LLAMA)
 echo "----------------------------------------"
 echo "🧠 Yapay Zeka Özeti Hazırlanıyor (Bu işlem biraz sürebilir)..."
